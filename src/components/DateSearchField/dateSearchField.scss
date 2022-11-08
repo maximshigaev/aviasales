@@ -1,0 +1,14 @@
+.dateSearchField {
+  text-align: left;
+  position: relative;
+
+  &__placeholder {
+    color: gray;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+  }
+}

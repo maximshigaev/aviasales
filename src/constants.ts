@@ -6,4 +6,6 @@ export enum SearchBtns {
 export enum FieldLabels {
   From = 'Откуда',
   To = 'Куда',
+  Where = 'Когда',
+  Back = 'Обратно',
 }

@@ -13,9 +13,12 @@ import { FieldLabels } from '../../constants';
 
 type TProps = {
   text: string;
+  value: string;
+  name: string;
+  handleChange: (name: string, value: string) => void;
 }
 
-export const TextSearchField: FC<TProps> = ({ text }) => {
+export const TextSearchField: FC<TProps> = ({ text, value, handleChange, name }) => {
   const { handleFocus, isFocused } = useFocus();
 
   const inputClassName = cn(
@@ -33,8 +36,11 @@ export const TextSearchField: FC<TProps> = ({ text }) => {
         className={inputClassName}
         placeholder={text}
         type="text"
+        name={name}
         onFocus={handleFocus}
         onBlur={handleFocus}
+        value={value}
+        onChange={({ target: {  name, value} }) => handleChange(name, value)}
       />
       {isFocused && (
         <span className="textSearchField__hint">{text}</span>

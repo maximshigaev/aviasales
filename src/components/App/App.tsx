@@ -1,8 +1,7 @@
 import { FC } from 'react';
 
 // Components
-import { Header } from '../';
-import { Search } from '../';
+import { Header, Search } from '../';
 
 export const App: FC = () => (
   <>
