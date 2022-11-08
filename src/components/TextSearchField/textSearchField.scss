@@ -1,0 +1,23 @@
+.textSearchField {
+  position: relative;
+
+  &__hint {
+    position: absolute;
+    bottom: 67px;
+    left: 15px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__label {
+    position: relative;
+    min-height: 60px;
+    display: inline-block;
+  }
+
+  &--from {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}

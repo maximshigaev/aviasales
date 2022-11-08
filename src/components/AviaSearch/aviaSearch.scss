@@ -1,0 +1,18 @@
+.aviaSearch {
+  &__input {
+    width: 205px;
+    height: 60px;
+    padding: 9px 15px;
+    margin-right: 1px;
+
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 2px #ff6f32;
+    }
+  }
+}

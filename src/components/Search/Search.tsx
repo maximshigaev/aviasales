@@ -1,6 +1,9 @@
 import { FC, useState, useCallback } from 'react';
 import cn from 'classnames';
 
+// Components
+import { AviaSearch } from '../';
+
 // Styles
 import './search.scss';
 
@@ -24,45 +27,49 @@ export const Search: FC = () => {
   const handleSwitchBtnClick = useCallback(() => {
     setActiveBtn((activeBtn === SearchBtns.Avia)
       ? SearchBtns.Hotel
-      : SearchBtns.Avia
+      : SearchBtns.Avia,
     );
   }, [activeBtn]);
 
   return (
     <div className="search">
-      <h1 className="search__title">Поиск дешевых авиабилетов</h1>
-      <p className="search__subTitle">Лёгкий способ купить авиабилеты дёшево</p>
+      <div className="container search__container">
+        <h1 className="search__title">Поиск дешевых авиабилетов</h1>
+        <p className="search__subTitle">Лёгкий способ купить авиабилеты дёшево</p>
 
-      <div className="search__switchContainer">
-        <div className="search__switch">
-          <button
-            className={aviaBtnClass}
-            onClick={handleSwitchBtnClick}
-          >
-            Авиабилеты
-          </button>
+        <div className="search__switchContainer">
+          <div className="search__switch">
+            <button
+              className={aviaBtnClass}
+              onClick={handleSwitchBtnClick}
+            >
+              Авиабилеты
+            </button>
 
-          <button
-            className={hotelBtnClass}
-            onClick={handleSwitchBtnClick}
+            <button
+              className={hotelBtnClass}
+              onClick={handleSwitchBtnClick}
+            >
+              Отели
+            </button>
+          </div>
+
+          <a
+            className="search__link"
+            href="https://b2b.aviasales.ru/"
           >
-            Отели
-          </button>
+            Для бизнеса
+            <img
+              className="search__arrowIcon"
+              src={businessArrowIcon}
+              alt="Иконка стрелки"
+              width={12}
+              height={12}
+            />
+          </a>
         </div>
 
-        <a
-          className="search__link"
-          href="https://b2b.aviasales.ru/"
-        >
-          Для бизнеса
-          <img
-            className="search__arrowIcon"
-            src={businessArrowIcon}
-            alt="Иконка стрелки"
-            width={12}
-            height={12}
-          />
-        </a>
+        {(activeBtn === SearchBtns.Avia) && <AviaSearch />}
       </div>
     </div>
   );
