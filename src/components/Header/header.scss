@@ -1,0 +1,57 @@
+.header {
+  background-color: #0c73fe;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  &__container {
+    min-height: 50px;
+    align-items: center;
+    display: flex;
+  }
+
+  &__logoLink {
+    display: inline-block;
+    margin-right: auto;
+  }
+
+  &__logo {
+    margin-left: 8px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 36px;
+    margin-right: 8px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &--profile,
+    &--more {
+      padding: 0 12px;
+    }
+
+    &--different,
+    &--currency {
+      width: 36px;
+      justify-content: center;
+    }
+
+    &--different {
+      margin-right: 0;
+    }
+  }
+
+  &__profileIcon {
+    margin-right: 12px;
+  }
+
+  &__moreIcon {
+    margin-right: 12px;
+  }
+}

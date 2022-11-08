@@ -1,0 +1,17 @@
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+button {
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
