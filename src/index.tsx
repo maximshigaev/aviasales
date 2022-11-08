@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom/client';
 // Components
 import { App } from './components';
 
+// Styles
+import './styles/style.scss';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
