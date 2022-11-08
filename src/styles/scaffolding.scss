@@ -1,3 +1,16 @@
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: 'Stapel';
+
+  font-display: swap;
+  src: url('../fonts/Stapel-Bold.woff2') format('woff2'), url('../fonts/Stapel-Bold.woff') format('woff');
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 .container {
   width: 1280px;
   margin: 0 auto;
@@ -14,4 +27,10 @@ button {
 
 * {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
 }

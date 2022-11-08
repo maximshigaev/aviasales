@@ -2,7 +2,13 @@ import { FC } from 'react';
 
 // Components
 import { Header } from '../';
+import { Search } from '../';
 
 export const App: FC = () => (
-  <Header />
+  <>
+    <Header />
+    <main>
+      <Search />
+    </main>
+  </>
 );
