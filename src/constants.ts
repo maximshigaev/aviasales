@@ -9,3 +9,10 @@ export enum FieldLabels {
   Where = 'Когда',
   Back = 'Обратно',
 }
+
+export enum Classes {
+  Economy = 'эконом',
+  Comfort = 'комфорт',
+  Business = 'бизнес',
+  First = 'первый класс',
+}
