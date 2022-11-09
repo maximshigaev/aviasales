@@ -16,3 +16,9 @@ export enum Classes {
   Business = 'бизнес',
   First = 'первый класс',
 }
+
+export enum HttpStatusCodes  {
+  SUCCESS = 200,
+}
+
+export const BASE_URL = 'http://localhost:8000';
