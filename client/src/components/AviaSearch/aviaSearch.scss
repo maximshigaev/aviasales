@@ -1,5 +1,6 @@
 .aviaSearch {
   display: flex;
+  position: relative;
 
   &__input {
     width: 205px;
@@ -32,6 +33,27 @@
     &:hover,
     &:focus {
       background-color: #ff521f;
+    }
+  }
+
+  &__swapBtn {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    top: 18px;
+    left: 193px;
+    background-color: #ffffff;
+    z-index: 1;
+  }
+
+  &__swapArrow {
+    display: block;
+
+    &--right {
+      transform: rotate(180deg);
+      margin-bottom: 3px;
     }
   }
 }
