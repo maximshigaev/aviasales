@@ -1,0 +1,98 @@
+export const cities = [
+  {
+    id: 1,
+    name: 'Астана',
+    country: 'Казахстан',
+    code: 'NQZ',
+  },
+  {
+    id: 2,
+    name: 'Алматы',
+    country: 'Казахстан',
+    code: 'ALA',
+  },
+  {
+    id: 3,
+    name: 'Абу-Даби',
+    country: 'ОАЭ',
+    code: 'AUH',
+  },
+  {
+    id: 4,
+    name: 'Анталья',
+    country: 'Турция',
+    code: 'AYT',
+  },
+  {
+    id: 5,
+    name: 'Актау',
+    country: 'Казахстан',
+    code: 'SCO',
+  },
+  {
+    id: 6,
+    name: 'Атырау',
+    country: 'Казахстан',
+    code: 'GUW',
+  },
+  {
+    id: 7,
+    name: 'Актобе',
+    country: 'Казахстан',
+    code: 'AKX',
+  },
+  {
+    id: 8,
+    name: 'Анкара',
+    country: 'Турция',
+    code: 'ANK',
+  },
+  {
+    id: 9,
+    name: 'Бангкок',
+    country: 'Тайланд',
+    code: 'BKK',
+  },
+  {
+    id: 10,
+    name: 'Баку',
+    country: 'Азербайджан',
+    code: 'BAK',
+  },
+  {
+    id: 11,
+    name: 'Бишкек',
+    country: 'Кыргызстан',
+    code: 'FRU',
+  },
+  {
+    id: 12,
+    name: 'Белград',
+    country: 'Сербия',
+    code: 'BEG',
+  },
+  {
+    id: 13,
+    name: 'Будапешт',
+    country: 'Венгрия',
+    code: 'BUD',
+  },
+  {
+    id: 14,
+    name: 'Бали',
+    country: 'Индонезия',
+    code: 'DPS',
+  },
+  {
+    id: 15,
+    name: 'Барселона',
+    country: 'Испания',
+    code: 'BCN',
+  },
+  {
+    id: 16,
+    name: 'Батуми',
+    country: 'Грузия',
+    code: 'BUS',
+  },
+];
