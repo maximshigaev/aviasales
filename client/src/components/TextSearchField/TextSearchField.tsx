@@ -1,6 +1,6 @@
 import { FC, useState, MutableRefObject, FocusEvent } from 'react';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Hooks
 import { useFocus } from '../../hooks';
@@ -18,6 +18,9 @@ import { FieldLabels } from '../../constants';
 // Selectors
 import { searchSelectors } from '../../domains/search/searchSelectors';
 
+// Actions
+import { searchActions } from '../../domains/search/searchActions';
+
 type TProps = {
   text: string;
   value: string;
@@ -31,13 +34,19 @@ export const TextSearchField: FC<TProps> = ({ text, value, handleChange, name, t
   const [filteredCities, setFilteredCities] = useState<TCity[]>([]);
 
   const { handleFocus, isFocused } = useFocus();
-  const availableCities = useSelector(searchSelectors.selectCities);  
+
+  const availableCities = useSelector(searchSelectors.selectCities);
+  const isFormInputError = useSelector(searchSelectors.selectIsFromInputError);
+  const isToInputError = useSelector(searchSelectors.selectIsToInputError);
+
+  const dispatch = useDispatch();
 
   const inputClassName = cn(
     'aviaSearch__input',
     'textSearchField',
     {
       'textSearchField--from': text === FieldLabels.From,
+      'textSearchField--error': text === FieldLabels.From ? isFormInputError : isToInputError,
     },
   );
 
@@ -59,6 +68,8 @@ export const TextSearchField: FC<TProps> = ({ text, value, handleChange, name, t
       const selectedCityCode = (evt.relatedTarget!.children[2] as HTMLElement).textContent as string;
 
       handleChange(name, selectedCityName, selectedCityCode);
+      dispatch(searchActions.clearFromInputError());
+      dispatch(searchActions.clearToInputError());
     }
 
     if ((text === FieldLabels.From) && isCityClicked) {      
@@ -87,6 +98,16 @@ export const TextSearchField: FC<TProps> = ({ text, value, handleChange, name, t
         ref={(text === FieldLabels.To) ? toInputRef : null}
         onChange={({ target: { name, value } }) => handleInputChange(name, value)}
       />
+      {isFormInputError && (text === FieldLabels.From) && !isFocused && (
+        <div className="textSearchField__errorMessage textSearchField__errorMessage--from">
+          Укажите город вылета
+        </div>
+      )}
+      {isToInputError && (text === FieldLabels.To) && !isFocused && (
+        <div className="textSearchField__errorMessage">
+          Укажите город прибытия
+        </div>
+      )}
       {isFocused && (
         <span className="textSearchField__hint">{text}</span>
       )}

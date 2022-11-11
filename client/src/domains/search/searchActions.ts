@@ -18,4 +18,20 @@ export const searchActions = {
   fetchCitiesFail: (): TSearchActions => ({
     type: SearchActionTypes.FETCH_CITIES_FAIL,
   }),
+
+  setFromInputError: (): TSearchActions => ({
+    type: SearchActionTypes.SET_FROM_INPUT_ERROR,
+  }),
+
+  clearFromInputError: (): TSearchActions => ({
+    type: SearchActionTypes.CLEAR_FROM_INPUT_ERROR,
+  }),
+
+  setToInputError: (): TSearchActions => ({
+    type: SearchActionTypes.SET_TO_INPUT_ERROR,
+  }),
+
+  clearToInputError: (): TSearchActions => ({
+    type: SearchActionTypes.CLEAR_TO_INPUT_ERROR,
+  }),
 }

@@ -1,5 +1,5 @@
 import { FC, useState, useCallback, useRef, MutableRefObject } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Components
 import {
@@ -23,6 +23,9 @@ import swapArrowIcon from '../../img/swapArrowIcon.svg';
 // Selectors
 import { searchSelectors } from '../../domains/search/searchSelectors';
 
+// Action
+import { searchActions } from '../../domains/search/searchActions';
+
 export const AviaSearch: FC = () => {
   const [formValues, setFormValues] = useState({
     from: '',
@@ -39,6 +42,14 @@ export const AviaSearch: FC = () => {
 
   const [selectedFromCity, setSelectedFromCity] = useState<{name: string, code: string} | null>(null);
   const [selectedToCity, setSelectedToCity] = useState<{ name: string, code: string } | null>(null);
+
+  const availableCities = useSelector(searchSelectors.selectCities);
+  const dispatch = useDispatch();
+
+  const isFromInputFilled = availableCities
+    .findIndex(({ name }) => name.toLowerCase() === formValues.from.toLowerCase()) !== -1;
+  const isToInputFilled = availableCities
+    .findIndex(({ name }) => name.toLowerCase() === formValues.to.toLowerCase()) !== -1;
 
   const handleChange = useCallback((name:string, value: string | object, code?: string) => {
     if (code) {
@@ -72,6 +83,16 @@ export const AviaSearch: FC = () => {
   }
 
   const toInputRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+
+  const handleSearchBtnClick = () => {
+    if (!isFromInputFilled) {
+      dispatch(searchActions.setFromInputError());
+    }
+
+    if (!isToInputFilled) {
+      dispatch(searchActions.setToInputError());
+    }
+  }
 
   return (
     <form className="aviaSearch">
@@ -135,6 +156,7 @@ export const AviaSearch: FC = () => {
       <button
         className="aviaSearch__btn"
         type="button"
+        onClick={handleSearchBtnClick}
       >
         Найти билеты
       </button>

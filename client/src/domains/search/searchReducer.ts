@@ -8,6 +8,8 @@ const initialState: TSearchState = {
   cities: [],
   isCitiesFetching: false,
   isCitiesError: false,
+  isFromInputError: false,
+  isToInputError: false,
 }
 
 export const searchReducer = (state = initialState, action: TSearchActions): typeof initialState => {
@@ -34,6 +36,30 @@ export const searchReducer = (state = initialState, action: TSearchActions): typ
         cities: [],
         isCitiesFetching: false,
         isCitiesError: true,
+      };
+
+    case SearchActionTypes.SET_FROM_INPUT_ERROR:
+      return {
+        ...state,
+        isFromInputError: true,
+      };
+
+    case SearchActionTypes.CLEAR_FROM_INPUT_ERROR:
+      return {
+        ...state,
+        isFromInputError: false,
+      };
+
+    case SearchActionTypes.SET_TO_INPUT_ERROR:
+      return {
+        ...state,
+        isToInputError: true,
+      };
+
+    case SearchActionTypes.CLEAR_TO_INPUT_ERROR:
+      return {
+        ...state,
+        isToInputError: false,
       };
 
     default:
