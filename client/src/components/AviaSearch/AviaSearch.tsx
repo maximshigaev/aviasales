@@ -1,4 +1,5 @@
 import { FC, useState, useCallback, useRef, MutableRefObject } from 'react';
+import { useSelector } from 'react-redux';
 
 // Components
 import {
@@ -19,29 +20,36 @@ import { Classes } from '../../constants';
 // Images
 import swapArrowIcon from '../../img/swapArrowIcon.svg';
 
+// Selectors
+import { searchSelectors } from '../../domains/search/searchSelectors';
+
 export const AviaSearch: FC = () => {
   const [formValues, setFormValues] = useState({
     from: '',
     to: '',
     where: '',
     back: '',
-    passengers: 1,
+    passengers: {
+      adults: 1,
+      children: 0,
+      infants: 0,
+    },
     class: Classes.Economy,
   });
 
   const [selectedFromCity, setSelectedFromCity] = useState<{name: string, code: string} | null>(null);
   const [selectedToCity, setSelectedToCity] = useState<{ name: string, code: string } | null>(null);
 
-  const handleChange = useCallback((name:string, value: string, code?: string) => {
+  const handleChange = useCallback((name:string, value: string | object, code?: string) => {
     if (code) {
       if (name === 'from') {
         setSelectedFromCity({
-          name: value,
+          name: value as string,
           code,
         });
       } else {
         setSelectedToCity({
-          name: value,
+          name: value as string,
           code,
         });
       }
@@ -119,8 +127,9 @@ export const AviaSearch: FC = () => {
       />
 
       <SelectSearchField
-        passengersValue={formValues.passengers}
+        passengers={formValues.passengers}
         classValue={formValues.class}
+        handleChange={handleChange}
       />
 
       <button
